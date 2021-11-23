@@ -8,22 +8,22 @@ int main ( int argc, char *argv[] ) {
 
     gst_init ( &argc, &argv );
 
-    lopp = g_main_loop_new (NULL, FALSE);
+    loop = g_main_loop_new (NULL, FALSE);
 
     if( argc != 4 ) {
         g_printerr ( "Usage: IP PORT PATTERN\n" );
         return -1;
     }
 
-    pipeline    = gst_pipeline_new ( "video-sample" );
-    videosrc    = gst_element_factory_make ( "videotestsrc", "source" );
-    enc         = gst_element_factory_make ( "x264enc", "enc" );
-    pay         = gst_element_factory_make ( "rtph264pay", "rtph264pay" );
-    udp         = gst_element_factory_make ( "udpsink", "udp" );
-
+    pipeline = gst_pipeline_new ("video-player");
+    videosrc = gst_element_factory_make ("videotestsrc", "source");
+    enc = gst_element_factory_make ("x264enc", "enc"); //ERROR NOT INSTALL gstreamer1.0-plugins-ugly
+    pay = gst_element_factory_make ("rtph264pay", "rtph264pay");
+    udp = gst_element_factory_make ("udpsink", "udp");
+   
+    g_object_set ( G_OBJECT ( udp ), "host", argv[1], NULL);
+    g_object_set ( G_OBJECT ( udp ), "port", atoi(argv[2]), NULL);
     g_object_set ( G_OBJECT ( videosrc ), "pattern", atoi( argv[3]), NULL);
-    g_object_set ( G_OBJECT ( upd ), "host", argv[1], NULL);
-    g_object_set ( G_OBJECT ( upd ), "port", atoi(argv[2]), NULL);
 
     if ( !pipeline ) {
         g_printerr ("Pipeline.\n");
@@ -33,7 +33,7 @@ int main ( int argc, char *argv[] ) {
     if ( !videosrc ) {
         g_printerr ("Source.\n");
         return -1;
-    }
+    }   
 
     if ( !enc ) {
         g_printerr ("Enc.\n");
@@ -50,7 +50,8 @@ int main ( int argc, char *argv[] ) {
         return -1;
     }
 
-    void gst_bin_add_many( GstBin *bin, GstElement *element_1, ...)
+   
+    
     gst_bin_add_many( GST_BIN ( pipeline ), videosrc, enc, pay, udp, NULL);
 
     if ( gst_element_link_many ( videosrc, enc, pay, udp, NULL ) != TRUE) {
@@ -67,3 +68,38 @@ int main ( int argc, char *argv[] ) {
 
     return 0;
 }
+
+/*
+INSTALL IN TERMINAL
+
+>sudo apt-get install libgstreamer1.0-dev
+
+>sudo apt-get install gstreamer1.0-plugins-ugly
+*/
+
+/*
+COMPILE
+
+> sudo make
+
+*/
+
+/*
+>sudo ./video_sample 127.0.0.0 50002 0
+
+(program IP port event(0,1...12))
+*/
+
+/*
+SHOW VODEO_SAMPLE
+
+gst-launch-1.0 \
+    udpsrc port=50002 caps= "application/x-rtp, media=(string)video, clock-rate=(int) 90000, encoding-name=(string)H264, payload=(int)96" \
+    ! rtph264depay \
+    ! decodebin \
+    ! videoconvert \
+    ! autovideosink
+*/
+
+
+
