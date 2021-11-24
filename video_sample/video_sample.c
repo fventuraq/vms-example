@@ -102,4 +102,14 @@ gst-launch-1.0 \
 */
 
 
+//======================================//
 
+/*=================
+
+EXECUTE DOCKER
+
+>sudo docker build . -t video_sample 
+>ifconfig //ip docker
+>sudo docker run video_sample 172.17.0.1 50009 13
+
+============================*/

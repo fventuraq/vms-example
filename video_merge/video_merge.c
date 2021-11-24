@@ -27,7 +27,7 @@ int main( int argc, char *argv[]){
     videotestsrc pattern=white \
     ! video/x-raw, format=I420, framerate=5/1, width=630, height=320 \
     ! m. \
-    udpsrc port=50003 caps = \"application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96\" \    
+    udpsrc port=50003 caps = \"application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96\" \
     ! queue2 \
     ! rtph264depay \
     ! decodebin \
@@ -36,7 +36,7 @@ int main( int argc, char *argv[]){
     ! video/x-raw,width=300,height=300 \
     ! queue2 \
     ! m. \
-    udpsrc port=50002 caps = \"application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96\" \
+    udpsrc port=50001 caps = \"application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96\" \
     ! queue2 \
     ! rtph264depay \
     ! decodebin \

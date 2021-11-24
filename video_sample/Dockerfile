@@ -13,4 +13,6 @@ COPY ./video_sample.c ./video_sample.c
 
 COPY ./start.sh ./start.sh
 
-ENTRYPOINT [ "./start.sh" ]
+USER root
+
+ENTRYPOINT ["./start.sh"]

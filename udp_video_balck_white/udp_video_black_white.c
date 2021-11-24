@@ -6,7 +6,7 @@
 int main(int argc, char *argv[]){
 
     if(argc != 3) {
-        g_printerr ("Usage: UP PORT\n");
+        g_printerr ("Usage: IP PORT\n");
         return -1;
     }
 
@@ -19,7 +19,9 @@ int main(int argc, char *argv[]){
 
     char* pipeline_string;
 
-    asprintf(&pipeline_string, "udpsrc port=5000 caps = \"application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96\" \
+    //THE PORT IS OF THE VIRTUAL DEVICE
+
+    asprintf(&pipeline_string, "udpsrc port=50002 caps = \"application/x-rtp, media=(string)video, clock-rate=(int)90000, encoding-name=(string)H264, payload=(int)96\" \
     ! rtph264depay \
     ! decodebin \
     ! videobalance saturation=0 \
@@ -35,3 +37,18 @@ int main(int argc, char *argv[]){
 
     return 0;
 }
+
+/*=====================================
+
+>sudo make
+>sudo ./udp_video_black_white 127.0.0.1 50003
+
+====SHOW BLACK AND WHITE =====
+>sudo gst-launch-1.0 \
+    udpsrc port=50003 caps= "application/x-rtp, media=(string)video, clock-rate=(int) 90000, encoding-name=(string)H264, payload=(int)96" \
+    ! rtph264depay \
+    ! decodebin \
+    ! videoconvert \
+    ! autovideosink
+
+=======================================*/
