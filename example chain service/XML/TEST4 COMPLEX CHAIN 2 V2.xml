@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<chainModel>
+  <name>TEST4-EXAMPLE4</name>
+  <description>TEST4 DESCRIPTION</description>
+	<devices>
+		<name>Video Sample Color Bars #1</name>
+		<id>6182b2df009a5f002b9f5233</id>		
+	</devices>
+	
+	<devices>
+		<name>Video Sample Ball #1</name>
+		<id>612d2be9584918002664440e</id>
+	</devices>
+ 
+	<vmss>
+		<name>VMS1</name>
+		<vmsType>617ae6c919d4150025910fa9</vmsType>
+		<node>localhost</node>
+		<startupParameters>INIT1</startupParameters>
+		<virtualMemory>
+	      		<size>1024</size>
+	    	</virtualMemory>
+		<virtualCPU>
+		      	<numCpu>1</numCpu>
+		</virtualCPU>		
+	</vmss>
+	<vmss>
+		<name>VMS2</name>
+		<vmsType>617ae6c919d4150025910fa9</vmsType>
+		<node>localhost</node>
+		<startupParameters>INIT2</startupParameters>
+		<virtualMemory>
+	      		<size>1024</size>
+	    	</virtualMemory>
+		<virtualCPU>
+		      	<numCpu>1</numCpu>
+		</virtualCPU>		
+	</vmss>
+	<vmss>
+		<name>VMS3</name>
+		<vmsType>617ae6c819d4150025910fa5</vmsType>
+		<node>localhost</node>
+		<startupParameters>INIT2</startupParameters>
+		<virtualMemory>
+	      		<size>1024</size>
+	    	</virtualMemory>
+		<virtualCPU>
+		      	<numCpu>1</numCpu>
+		</virtualCPU>		
+	</vmss> 
+
+
+	<link>
+		<origin>
+			<name>Video Sample Color Bars #1</name>
+			<port></port>
+			<outputType>video</outputType>
+		</origin>
+		<destine>
+			<name>VMS3</name>
+			<ip></ip>
+			<port>5000</port>
+			<outputType>video</outputType>
+		</destine>
+	</link>
+
+	<link>
+		<origin>
+			<name>Video Sample Color Bars #1</name>
+			<port></port>
+			<outputType>video</outputType>
+		</origin>
+		<destine>
+			<name>VMS2</name>
+			<ip></ip>
+			<port>5000</port>
+			<outputType>video</outputType>
+		</destine>
+	</link>
+
+	<link>
+		<origin>
+			<name>Video Sample Color Bars #1</name>
+			<port></port>
+			<outputType>video</outputType>
+		</origin>
+		<destine>
+			<name>VMS1</name>
+			<ip></ip>
+			<port>15001</port>
+			<outputType>video</outputType>
+		</destine>
+	</link>
+
+	<link>
+		<origin>
+			<name>VMS1</name>
+			<port></port>
+			<outputType>video</outputType>
+		</origin>
+		<destine>
+			<name>172.17.0.1</name>
+			<ip>172.17.0.1</ip>
+			<port>10001</port>
+			<outputType>video</outputType>
+		</destine>
+	</link>
+
+	<link>
+		<origin>
+			<name>VMS2</name>
+			<port></port>
+			<outputType>video</outputType>
+		</origin>
+		<destine>
+			<name>VMS1</name>
+			<ip></ip>
+			<port>15000</port>
+			<outputType>video</outputType>
+		</destine>
+	</link>
+
+	<link>
+		<origin>
+			<name>VMS3</name>
+			<port></port>
+			<outputType>video</outputType>
+		</origin>
+		<destine>
+			<name>VMS2</name>
+			<ip></ip>
+			<port>15001</port>
+			<outputType>video</outputType>
+		</destine>
+	</link>
+
+</chainModel>

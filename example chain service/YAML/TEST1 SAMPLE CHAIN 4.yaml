@@ -1,0 +1,40 @@
+---
+chainModel:
+  name: TEST1  SAMPLE CHAIN 4
+  description: Sample chain device to VMS
+  devices:
+    device:
+      name: Video Sample Color Bars #1
+      id: 612d2be95849180026644410
+  vmss:
+    vms:
+      name: VMS1
+      vmsType: 612d2be958491800266443fe
+      node: localhost
+      startupParameters: INIT1
+      virtualMemory:
+        size: 1024
+      virtualCPU:
+        numCpu: 1
+  virtualLink:
+    link:
+    -
+      origin:
+        name: TEST1  SAMPLE CHAIN 4
+        port:
+        outputType: video
+      destine:
+        name: VMS1
+        ip:
+        port: 5000
+        outputType: video
+    -
+      origin:
+        name: VMS1
+        port:
+        outputType: video
+      destine:
+        name: 192.168.0.178
+        ip: 192.168.0.178
+        port: 10002
+        outputType: video

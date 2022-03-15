@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<chainModel>
+<name></name>
+<description></description>
+
+<devices>
+	<device> 
+        <name></name>
+		<id></id>   
+	</device>
+
+    <device> 
+        <name></name>
+		<id></id>   
+	</device>
+</devices>
+
+<vmss>
+	<vms>
+        <name></name>
+		<vmsType></vmsType>
+		<node></node>
+		<startupParameters></startupParameters>
+		<virtualMemory>
+	      	<size></size>
+	    </virtualMemory>
+		<virtualCPU>
+		    <numCpu></numCpu>
+		</virtualCPU>
+    </vms>
+
+    <vms>
+        <name></name>
+		<vmsType></vmsType>
+		<node></node>
+		<startupParameters></startupParameters>
+		<virtualMemory>
+	      	<size></size>
+	    </virtualMemory>
+		<virtualCPU>
+		    <numCpu></numCpu>
+		</virtualCPU>
+    </vms>
+</vmss>
+
+<virtualLink>
+<link>
+    <origin>
+        <name></name>
+		<port></port>
+		<outputType></outputType>
+    </origin>
+
+    <destine>
+        <name></name>
+        <ip></ip>
+        <port></port>
+        <outputType></outputType>
+    </destine>
+</link>
+
+<link>
+    <origin>
+        <name></name>
+		<port></port>
+		<outputType></outputType>
+    </origin>
+
+    <destine>
+        <name></name>
+        <ip></ip>
+        <port></port>
+        <outputType></outputType>
+    </destine>
+</link>
+
+</virtualLink>
+
+</chainModel>

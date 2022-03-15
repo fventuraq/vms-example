@@ -1,0 +1,47 @@
+{
+    "name": "TEST1  SAMPLE CHAIN 4",
+    "description": "Sample chain device to VMS",
+    "devices": [
+        {
+            "id": "612d2be95849180026644410",
+            "forWard": [
+                {
+                    "name": "VMS1",
+                    "ip": "",
+                    "port": "5000",
+                    "outputType": "video"
+                }
+            ],
+            "name": "Video Sample Color Bars #1"
+        }
+    ],
+    "vmss": [
+        {
+            "name": "VMS1",
+            "vmsType": "612d2be958491800266443fe",
+            "paramsPorts": [
+                {
+                    "_id": "61eb9811585a0e00267f08fb",
+                    "inputType": "video",
+                    "port": "5000"
+                }
+            ],
+            "node": "localhost",
+            "startupParameters": "INIT1",
+            "forWard": [
+                {
+                    "name": "192.168.0.178",
+                    "ip": "192.168.0.178",
+                    "port": "10002",
+                    "outputType": "video"
+                }
+            ],
+            "virtualMemory": {
+                "size": "1024"
+            },
+            "virtualCPU": {
+                "numCpu": "1"
+            }
+        }
+    ]
+}

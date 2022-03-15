@@ -94,7 +94,7 @@ COMPILE
 SHOW VODEO_SAMPLE
 
 gst-launch-1.0 \
-    udpsrc port=50002 caps= "application/x-rtp, media=(string)video, clock-rate=(int) 90000, encoding-name=(string)H264, payload=(int)96" \
+    udpsrc port=50009 caps= "application/x-rtp, media=(string)video, clock-rate=(int) 90000, encoding-name=(string)H264, payload=(int)96" \
     ! rtph264depay \
     ! decodebin \
     ! videoconvert \
@@ -110,6 +110,6 @@ EXECUTE DOCKER
 
 >sudo docker build . -t video_sample 
 >ifconfig //ip docker
->sudo docker run video_sample 172.17.0.1 50009 13
+>sudo docker run video_sample 172.17.240.1 50009 13
 
 ============================*/

@@ -1,0 +1,100 @@
+---
+chainModel:
+  name: TEST4-EXAMPLE4
+  description: TEST4 DESCRIPTION
+  devices:
+  -
+    name: Video Sample Color Bars #1
+    id: 6182b2df009a5f002b9f5233
+  -
+    name: Video Sample Ball #1
+    id: 612d2be9584918002664440e
+  vmss:
+  -
+    name: VMS1
+    vmsType: 617ae6c919d4150025910fa9
+    node: localhost
+    startupParameters: INIT1
+    virtualMemory:
+      size: 1024
+    virtualCPU:
+      numCpu: 1
+  -
+    name: VMS2
+    vmsType: 617ae6c919d4150025910fa9
+    node: localhost
+    startupParameters: INIT2
+    virtualMemory:
+      size: 1024
+    virtualCPU:
+      numCpu: 1
+  -
+    name: VMS3
+    vmsType: 617ae6c819d4150025910fa5
+    node: localhost
+    startupParameters: INIT2
+    virtualMemory:
+      size: 1024
+    virtualCPU:
+      numCpu: 1
+  link:
+  -
+    origin:
+      name: Video Sample Color Bars #1
+      port:
+      outputType: video
+    destine:
+      name: VMS3
+      ip:
+      port: 5000
+      outputType: video
+  -
+    origin:
+      name: Video Sample Color Bars #1
+      port:
+      outputType: video
+    destine:
+      name: VMS2
+      ip:
+      port: 5000
+      outputType: video
+  -
+    origin:
+      name: Video Sample Color Bars #1
+      port:
+      outputType: video
+    destine:
+      name: VMS1
+      ip:
+      port: 15001
+      outputType: video
+  -
+    origin:
+      name: VMS1
+      port:
+      outputType: video
+    destine:
+      name: 172.17.0.1
+      ip: 172.17.0.1
+      port: 10001
+      outputType: video
+  -
+    origin:
+      name: VMS2
+      port:
+      outputType: video
+    destine:
+      name: VMS1
+      ip:
+      port: 15000
+      outputType: video
+  -
+    origin:
+      name: VMS3
+      port:
+      outputType: video
+    destine:
+      name: VMS2
+      ip:
+      port: 15001
+      outputType: video

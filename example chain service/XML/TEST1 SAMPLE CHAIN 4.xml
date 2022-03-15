@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<chainModel>
+<name>TEST1  SAMPLE CHAIN 4</name>
+<description>Sample chain device to VMS</description>
+
+<devices>
+	<device> 
+        <name>Video Sample Color Bars #1</name>  
+		<id>612d2be95849180026644410</id>           
+	</device>
+</devices>
+
+<vmss>
+	<vms>
+        <name>VMS1</name>
+		<vmsType>612d2be958491800266443fe</vmsType>
+		<node>localhost</node>
+		<startupParameters>INIT1</startupParameters>
+		<virtualMemory>
+	      	<size>1024</size>
+	    </virtualMemory>
+		<virtualCPU>
+		    <numCpu>1</numCpu>
+		</virtualCPU>
+    </vms>
+</vmss>
+
+<virtualLink>
+<link>
+    <origin>
+        <name>TEST1  SAMPLE CHAIN 4</name>
+		<port></port>
+		<outputType>video</outputType>
+    </origin>
+
+    <destine>
+        <name>VMS1</name>
+        <ip></ip>
+        <port>5000</port>
+        <outputType>video</outputType>
+    </destine>
+</link>
+
+<link>
+    <origin>
+        <name>VMS1</name>
+		<port></port>
+		<outputType>video</outputType>
+    </origin>
+
+    <destine>
+        <name>192.168.0.178</name>
+        <ip>192.168.0.178</ip>
+        <port>10002</port>
+        <outputType>video</outputType>
+    </destine>
+</link>
+
+</virtualLink>
+
+</chainModel>

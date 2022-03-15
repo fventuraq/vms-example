@@ -51,4 +51,9 @@ int main(int argc, char *argv[]){
     ! videoconvert \
     ! autovideosink
 
+
+
+>sudo docker build . -t udp_video_black_white
+>sudo docker run udp_video_black_white 172.29.64.1 50003
 =======================================*/
+

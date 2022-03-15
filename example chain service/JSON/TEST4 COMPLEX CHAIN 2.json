@@ -1,0 +1,129 @@
+{
+    "name": "TEST4 COMPLEX CHAIN 2",
+    "description": "Complex chain multiple VMS",
+    "devices": [
+        {
+            "id": "612d2be95849180026644410",
+            "forWard": [
+                {
+                    "name": "VMS2",
+                    "ip": "",
+                    "port": "15000",
+                    "outputType": "video"
+                },
+                {
+                    "name": "VMS3",
+                    "ip": "",
+                    "port": "5000",
+                    "outputType": "video"
+                }
+            ],
+            "name": "Video Sample Color Bars #1"
+        },
+        {
+            "id": "612d2be9584918002664440e",
+            "forWard": [
+                {
+                    "name": "VMS1",
+                    "ip": "",
+                    "port": "15001",
+                    "outputType": "video"
+                }
+            ],
+            "name": "Video Sample Ball #1"
+        }
+    ],
+    "vmss": [
+        {
+            "name": "VMS1",
+            "vmsType": "612d2be95849180026644402",
+            "paramsPorts": [
+                {
+                    "_id": "61eb97be585a0e00267f08e7",
+                    "inputType": "video",
+                    "port": "15000"
+                },
+                {
+                    "_id": "61eb97be585a0e00267f08e8",
+                    "inputType": "video",
+                    "port": "15001"
+                }
+            ],
+            "node": "localhost",
+            "startupParameters": "INIT1",
+            "forWard": [
+                {
+                    "name": "192.168.0.178",
+                    "ip": "192.168.0.178",
+                    "port": "10001",
+                    "outputType": "video"
+                }
+            ],
+            "virtualMemory": {
+                "size": "1024"
+            },
+            "virtualCPU": {
+                "numCpu": "1"
+            }
+        },
+        {
+            "name": "VMS2",
+            "vmsType": "612d2be95849180026644402",
+            "paramsPorts": [
+                {
+                    "_id": "61eb97be585a0e00267f08e7",
+                    "inputType": "video",
+                    "port": "15000"
+                },
+                {
+                    "_id": "61eb97be585a0e00267f08e8",
+                    "inputType": "video",
+                    "port": "15001"
+                }
+            ],
+            "node": "localhost",
+            "startupParameters": "INIT2",
+            "forWard": [
+                {
+                    "name": "VMS1",
+                    "ip": "",
+                    "port": "15000",
+                    "outputType": "video"
+                }
+            ],
+            "virtualMemory": {
+                "size": "1024"
+            },
+            "virtualCPU": {
+                "numCpu": "1"
+            }
+        },
+        {
+            "name": "VMS3",
+            "vmsType": "612d2be958491800266443fa",
+            "paramsPorts": [
+                {
+                    "_id": "61eb9826585a0e00267f0902",
+                    "inputType": "video",
+                    "port": "5000"
+                }
+            ],
+            "node": "localhost",
+            "startupParameters": "INIT3",
+            "forWard": [
+                {
+                    "name": "VMS2",
+                    "ip": "",
+                    "port": "15001",
+                    "outputType": "video"
+                }
+            ],
+            "virtualMemory": {
+                "size": "1024"
+            },
+            "virtualCPU": {
+                "numCpu": "1"
+            }
+        }
+    ]
+}
